@@ -13,7 +13,6 @@ elsif ( $base = 2 ) {
 else {
     $prefix = '0*';
 }
-my @supradecimal = qw/ A B C D E F /;
 
 while ( $decimal > 0 ) {
     my $remainder = $decimal % $base;
@@ -21,7 +20,7 @@ while ( $decimal > 0 ) {
         unshift @ans_digits, $remainder;
     }
     else {
-        unshift @ans_digits, $supradecimal[ $remainder - 10 ];
+        unshift @ans_digits, chr( $remainder + 55 );
     }
 
     $decimal = ( $decimal - $remainder ) / $base;
